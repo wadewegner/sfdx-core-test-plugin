@@ -1,0 +1,55 @@
+{
+  "name": "myfirstplugin",
+  "version": "0.0.0",
+  "author": "Wade Wegner @wadewegner",
+  "bugs": "https://github.com/wadewegner/myfirstplugin/issues",
+  "dependencies": {
+    "@oclif/command": "^1.4.6",
+    "@oclif/config": "^1.3.62",
+    "@oclif/errors": "^1.0.3",
+    "@salesforce/command": "^0.0.10"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1.4.4",
+    "@oclif/plugin-help": "^1.2.2",
+    "@oclif/test": "^1.0.1",
+    "@oclif/tslint": "^1.0.2",
+    "@salesforce/dev-config": "^1.0.4",
+    "@types/node": "^9.6.1",
+    "globby": "^8.0.1",
+    "sinon": "^4.5.0",
+    "ts-node": "5",
+    "tslint": "^5.9.1",
+    "typescript": "^2.8.1"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    ".oclif.manifest.json",
+    "/lib"
+  ],
+  "homepage": "https://github.com/wadewegner/myfirstplugin",
+  "keywords": [
+    "sfdx-plugin"
+  ],
+  "license": "MIT",
+  "oclif": {
+    "commands": "./lib/commands",
+    "devPlugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "wadewegner/myfirstplugin",
+  "scripts": {
+    "build": "rm -rf lib && tsc",
+    "clean": "rm -f .oclif.manifest.json",
+    "lint": "tsc -p test --noEmit && tslint -p test -t stylish",
+    "postpublish": "yarn run clean",
+    "posttest": "yarn run lint",
+    "prepare": "yarn run build && oclif-dev manifest",
+    "prepublishOnly": "yarn run build && oclif-dev manifest",
+    "preversion": "yarn run clean",
+    "version": "oclif-dev readme && git add README.md"
+  }
+}
