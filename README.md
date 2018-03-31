@@ -27,4 +27,7 @@ sfdx plugins:link .
 ```
 sfdx waw:debug
 sfdx waw:debug --json
+sfdx waw:debug -u [alias|username]
+sfdx waw:debug -v [alias|username]
+sfdx waw:debug -u [alias|username] -v [alias|username]
 ```
