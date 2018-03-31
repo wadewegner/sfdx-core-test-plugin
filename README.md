@@ -25,6 +25,6 @@ sfdx plugins:link .
 4) Run the command:
 
 ```
-sfdx hello:org
-sfdx hello:org --json
+sfdx waw:debug
+sfdx waw:debug --json
 ```
