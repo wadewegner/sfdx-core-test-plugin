@@ -31,6 +31,9 @@ export default class Org extends SfdxCommand {
     let devHubOrgConfigInfo = devHubOrgConfigAggregator.getConfigInfo();
     this.ux.log('devHubOrgConfigInfo', devHubOrgConfigInfo);
 
+    let devHubMetaInfo = this.hubOrg.getMetaInfo();
+    this.ux.log('devHubMetaInfo', devHubMetaInfo);
+
     // Default Org
     await this.org.refreshAuth();
     this.ux.log('refreshed org auth');
@@ -48,6 +51,9 @@ export default class Org extends SfdxCommand {
     let orgConfigInfo = orgConfigAggregator.getConfigInfo();
     this.ux.log('orgConfigInfo', orgConfigInfo);
 
+    let orgMetaInfo = this.org.getMetaInfo();
+    this.ux.log('orgMetaInfo', orgMetaInfo);
+
     // core
     this.ux.styledHeader('core');
 
@@ -60,9 +66,11 @@ export default class Org extends SfdxCommand {
     let usernameAliasFileName = await core.Aliases.getFileName();
     this.ux.log('usernameAliasFileName', usernameAliasFileName);
 
+    core.SfdxConfig
+
     // Return an object to be displayed with --json
-    return { devHubUsername, devHubOrgId, devHubOrgConnectionOptions, devHubOrgConfigInfo, 
-      username, orgId, orgConnectionOptions, orgConfigInfo,
+    return { devHubUsername, devHubOrgId, devHubOrgConnectionOptions, devHubOrgConfigInfo, devHubMetaInfo,
+      username, orgId, orgConnectionOptions, orgConfigInfo, orgMetaInfo,
       devHubOrgOptions, orgOptions, usernameAliasFileName 
     };
   }
